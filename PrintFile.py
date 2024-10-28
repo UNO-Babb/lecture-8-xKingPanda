@@ -2,7 +2,12 @@ def main():
   myFile = open("qbdata.txt", 'r')
 
   for line in myFile:
-    print (line)
+    info = line.split(",")
+
+    #print (info)
+    if info[1] == '"NE"':
+      print(line)
+    
 
   myFile.close()
 
