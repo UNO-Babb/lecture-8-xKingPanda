@@ -1,13 +1,9 @@
 def main():
-  myFile = open("qbdata.txt", 'r')
-
+  myFile = open("mlb_output.csv", 'r')
+  
+#print for every line
   for line in myFile:
-    info = line.split(",")
-
-    #print (info)
-    if info[1] == '"NE"':
-      print(line)
-    
+    print(line.strip()) # Use strip() to remove any trailing newline characters
 
   myFile.close()
 

@@ -1,17 +1,18 @@
-import random
 
-def main():
 
-  outFile = open("dice_rolls.txt", 'w')
+def print_mlb_output(team_data):
+    # Open the combined MLB output file for reading
+    outFile = open("mlb_output.csv", 'w')
 
-  die1 = random.randint(1,6)
-  die2 = random.randint(1,6)
-  total = die1 + die2
+    # Print each line in the file
+    outFile.write("Team Name,R/G,RA/G,W,L,ERA\n")
 
-  output = str(die1) + " " + str(die2) + " " + str(total) + "\n"
-  outFile.write(output)
+    for team in team_data:
+        # Convert the list to a string and format it manually
+        team_str = str(team)
+        team_str = team_str.replace("[", "")
+        team_str = team_str.replace("]", "")
+        team_str = team_str.replace("'", "")
+        outFile.write(team_str + "\n")  # Write each team data line to the file
 
-  outFile.close()
-
-if __name__ == '__main__':
-  main()
+    outFile.close()
